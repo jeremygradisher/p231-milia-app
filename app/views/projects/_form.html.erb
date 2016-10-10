@@ -1,0 +1,103 @@
+<%= form_for [@tenant, @project], :html => { :class => "form-horizontal project" } do |f| %>
+
+  <% if @project.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @project.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:name) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :address, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :address, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:address) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :city, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :city, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:city) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :state, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :state, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:state) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :zip, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :zip, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:zip) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :project_type, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :project_type, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:project_type) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :square_footage, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :square_footage, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:square_footage) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :description, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:description) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :owner, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :owner, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:owner) %>
+  </div>
+  <!--
+  <div class="form-group">
+    <%#= f.label :tenant_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%#= f.text_field :tenant_id, :class => 'form-control' %>
+    </div>
+    <%#=f.error_span(:tenant_id) %>
+  </div>
+  -->
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <br />
+
+      <%= f.hidden_field :tenant_id, value: params[:tenant_id], :class => 'form-control' %>
+      
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                root_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>

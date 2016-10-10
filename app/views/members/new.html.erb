@@ -5,7 +5,6 @@
 </div>
 
 <%= form_for(@member, :html => { :class => "form login" }) do |f| %>
-
 <% if @member.errors.any? %>
 
 <div id="error_expl" class="panel panel-danger">
@@ -17,17 +16,11 @@
 </div>
 
 <div class="panel-body">
-
-<ul>
-
-<% @member.errors.full_messages.each do |msg| %>
-
-<li><%= msg %></li>
-
-<% end %>
-
-</ul>
-
+  <ul>
+  <% @member.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+  </ul>
 </div>
 
 </div>

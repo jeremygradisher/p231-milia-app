@@ -1,0 +1,2 @@
+json.extract! project, :id, :name, :address, :city, :state, :zip, :project_type, :square_footage, :description, :owner, :tenant_id, :created_at, :updated_at
+json.url project_url(project, format: :json)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006183223) do
+ActiveRecord::Schema.define(version: 20161007024432) do
 
   create_table "members", force: :cascade do |t|
     t.integer  "tenant_id"
@@ -24,6 +24,23 @@ ActiveRecord::Schema.define(version: 20161006183223) do
 
   add_index "members", ["tenant_id"], name: "index_members_on_tenant_id"
   add_index "members", ["user_id"], name: "index_members_on_user_id"
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "project_type"
+    t.string   "square_footage"
+    t.text     "description"
+    t.string   "owner"
+    t.integer  "tenant_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "projects", ["tenant_id"], name: "index_projects_on_tenant_id"
 
   create_table "sessions", force: :cascade do |t|
     t.string   "session_id", null: false
