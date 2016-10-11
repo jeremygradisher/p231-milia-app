@@ -11,11 +11,9 @@ class Artifact < ActiveRecord::Base
   
   private
   def upload_to_s3
-      #s3 = Aws::S3::Resource.new(region:'us-west-2')
-      s3 = Aws::S3::Resource.new(ENV['AWS_REGION'],ENV['AWS_ACCESS_KEY_ID'],ENV['AWS_SECRET_ACCESS_KEY'])
+      s3 = Aws::S3::Resource.new(ENV["AWS_REGION"], ENV["AWS_ACCESS_KEY_ID"], ENV["AWS_SECRET_ACCESS_KEY"])
       tenant_name = Tenant.find(Thread.current[:tenant_id]).name
-      #obj = s3.bucket(ENV['S3_BUCKET']).object("#{tenant_name}/#{upload.original_filename}")
-      obj = s3.bucket('pmilia2bucket').object("#{tenant_name}/#{upload.original_filename}")
+      obj = s3.bucket(ENV["S3_BUCKET"]).object("#{tenant_name}/#{upload.original_filename}")
       obj.upload_file(upload.path, acl:'public-read')
       self.key = obj.public_url
   end
