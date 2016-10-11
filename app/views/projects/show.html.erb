@@ -28,9 +28,10 @@
 </dl>
 
 
+<h3>Artifacts</h3>
+<%= render 'artifacts/list', artifacts: @project.artifacts %>
 
-
-
+<hr>
 
 <%= link_to '< Back to Organization Home', root_path, :class => 'btn btn-default' %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
