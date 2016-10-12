@@ -1,0 +1,14 @@
+<%= form_for @tenant, url: update_plan_path, html: { class: "#{class_name_for_tenant_form(@tenant)}" } do |f| %>
+
+    <div class="form-group col-md-12 no-side-padding">
+        <%= f.label :name, 'Organization' %>
+        <span class='description'>(Unique name for your group or organization for the new account)</span>
+        <%= f.text_field :name, required: true, class: "form-control" %>
+    </div>
+
+
+
+    <div class="row col-md-12">
+        <%= f.submit 'Update Plan', class: "btn btn-primary", id: 'update_plan' %>
+    </div>
+<% end %>
