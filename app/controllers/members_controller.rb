@@ -7,6 +7,13 @@ class MembersController < ApplicationController
     @member = Member.new()
     @user   = User.new()
   end
+  
+  def index()
+  end
+
+  def edit()
+
+  end
 
   def create()
     @user   = User.new( user_params )
@@ -20,7 +27,6 @@ class MembersController < ApplicationController
       @member = Member.new( member_params ) # only used if need to revisit form
       render :new
     end
-
   end
 
 
