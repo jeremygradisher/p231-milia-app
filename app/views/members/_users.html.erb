@@ -1,0 +1,33 @@
+<div class="page-header">
+    <h3>All Users <%#= @project.name %></h3>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>User ID:</th>
+            <th>Email:</th>
+            <th>Tenant IDs:</th>
+            <th>Project IDs:</th>
+            <th>is_admin?:</th>
+            <th>Last sign in:</th>
+            <th>Sign in count:</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <% @all_users.each do |user| %>
+        <tr>
+            <td><%= user.id %></td>
+            <td><%= user.email %></td>
+            <td><%= user.tenant_ids %></td>
+            <td><%= user.project_ids %></td>
+            <td><%= user.is_admin %></td>
+            <td><%= user.last_sign_in_at %></td>
+            <td><%= user.sign_in_count %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<hr>

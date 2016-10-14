@@ -1,5 +1,4 @@
 class MembersController < ApplicationController
-
   # uncomment to ensure common layout for forms
   # layout  "sign", :only => [:new, :edit, :create]
 
@@ -9,6 +8,8 @@ class MembersController < ApplicationController
   end
   
   def index()
+    @all_users = User.all
+    @all_members = Member.all
   end
 
   def edit()

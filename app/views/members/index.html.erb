@@ -1,0 +1,38 @@
+<%#= render 'users' %>
+
+<div class="page-header">
+    <h3>All Members <%#= @project.name %></h3>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID:</th>
+            <th>Email:</th>
+            <th>Name:</th>
+            <th>Tenant IDs:</th>
+            <th>Project IDs:</th>
+            <th>is_admin?:</th>
+            <th>Last sign in:</th>
+            <th># sign ins:</th>
+            <th>confirmed:</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <% @all_members.each do |member| %>
+        <tr>
+            <td><%= member.id %></td>
+            <td><%= member.user.email %></td>
+            <td><%= member.first_name %> <%= member.last_name %></td>
+            <td><%= member.user.tenant_ids %></td>
+            <td><%= member.user.project_ids %></td>
+            <td><%= member.user.is_admin %></td>
+            <td><%= member.user.last_sign_in_at %></td>
+            <td><%= member.user.sign_in_count %></td>
+            <td><%= member.user.confirmed_at? %></td>
+            
+        </tr>
+        <% end %>
+    </tbody>
+</table>
