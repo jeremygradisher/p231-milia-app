@@ -125,7 +125,8 @@ GEM
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     pg (0.21.0)
-    puma (3.12.2)
+    puma (4.3.11)
+      nio4r (~> 2.0)
     rack (2.0.8)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -227,7 +228,7 @@ DEPENDENCIES
   jquery-rails
   milia (~> 1.3.1)
   pg (~> 0.18)
-  puma (~> 3.0)
+  puma (~> 4.3)
   rails (~> 5.0.0)
   rails_12factor
   recaptcha
